@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz Test</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>
+          <h1>Simple Quiz</h1>
+          <p class="sub">One question at a time • Timer • Anti-cheat</p>
+        </div>
+      </div>
+
+      <div class="status">
+        <div class="pill" id="qPill">Q 1 / 1</div>
+        <div class="pill" id="timePill">⏱️ 00:00</div>
+      </div>
+    </header>
+
+    <main class="card" id="card">
+      <section id="startScreen">
+        <h2>Ready?</h2>
+        <p class="muted">
+          Rules:
+          <br>• You have a timer.
+          <br>• If you leave this screen/tab for <b>more than 7 seconds</b>, you will be marked as <b>CHEATED</b>.
+        </p>
+
+        <div class="row">
+          <label class="label">
+            Quiz duration (minutes):
+            <input id="minutesInput" type="number" min="1" max="180" value="20">
+          </label>
+          <button class="btn primary" id="startBtn">Start Quiz</button>
+        </div>
+
+        <p class="hint">Tip: You can edit your questions inside <code>app.js</code>.</p>
+      </section>
+
+      <section id="quizScreen" class="hidden">
+        <div class="meta">
+          <div class="title" id="questionText">Question text</div>
+          <div class="muted" id="cheatNote">Stay on this screen.</div>
+        </div>
+
+        <div class="options" id="options"></div>
+
+        <div class="footer">
+          <div class="muted" id="progressText">Question 1 of 10</div>
+          <div class="actions">
+            <button class="btn" id="nextBtn" disabled>Next</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="resultScreen" class="hidden">
+        <h2 id="resultTitle">Results</h2>
+        <p class="muted" id="resultSummary"></p>
+
+        <div class="scoreBox">
+          <div>
+            <div class="big" id="scoreBig">0%</div>
+            <div class="muted" id="scoreSmall">0 / 0 correct</div>
+          </div>
+          <div class="divider"></div>
+          <div class="muted" id="timeTaken">Time: 00:00</div>
+        </div>
+
+        <div class="row">
+          <button class="btn" id="restartBtn">Restart</button>
+        </div>
+
+        <details class="review">
+          <summary>Show review</summary>
+          <div id="reviewList"></div>
+        </details>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span class="muted">Hosted on GitHub Pages</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
